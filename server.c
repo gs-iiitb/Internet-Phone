@@ -1,6 +1,3 @@
-/*
-** server.c -- a stream socket server demo
-*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -22,8 +19,6 @@
 
 #define RATE 44100
 #define MAXDATASIZE 32 // max number of bytes we can get at once
-//#define PORT "3490"  // the port users will be connecting to
-
 #define BACKLOG 10     // how many pending connections queue will hold
 
 int16_t buffer[BUFSIZE];
@@ -158,9 +153,7 @@ int main(int argc,char *argv[])
             s, sizeof s);
         printf("server: got connection from %s\n", s);
 
-       // if (!fork()) { // this is the child process
-            //close(sockfd); // child doesn't need the listener
-			while(1)
+       			while(1)
 			{
 				if ((numbytes = recv(new_fd, buffer, MAXDATASIZE-1, 0)) == -1) {
 		    		perror("recv");
@@ -178,9 +171,7 @@ int main(int argc,char *argv[])
 				}
 
 			}
-           // close(new_fd);
-           // exit(0);
-        //}
+         
         close(new_fd);  // parent doesn't need this
     }
 finish:
