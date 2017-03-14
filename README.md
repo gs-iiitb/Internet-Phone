@@ -9,8 +9,17 @@ sudo apt-get install libpulse-dev
 sudo apt-get install libao-dev
 sudo reboot
 ``
+
 Now after installing the respected software to compile the code we have to use the below stated codes-
 ``
 gcc  -lpulse -lpulse-simple server.c   -o  server
 gcc  -lpulse -lpulse-simple client.c   -o client
 ``
+
+To run the codes,the following commands should be used-
+
+
+`./server 1234`
+
+
+`./client <ip address> 1234`
